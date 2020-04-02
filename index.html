@@ -6,6 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="app"></div>
 </body>
+<script src="./index.js"></script>
+<script>
+    let  app = new Fy({
+        el:'#app',
+        data:{
+            count:1,
+            ong :{
+                nem:111
+            }
+        }
+
+    })
+     app.$data.count
+     app.$data.count =2;
+     app.$data.ong.nem
+     app.$data.ong.nem =2;
+</script>
 </html>
