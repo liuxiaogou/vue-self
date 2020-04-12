@@ -6,23 +6,33 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <span>{{count}}</span>
+        <span fy-text ="name"></span>
+        <span fy-html="sss"></span>
+    </div>
 </body>
+<script src="./compile.js"></script>
 <script src="./index.js"></script>
 <script>
     let  app = new Fy({
         el:'#app',
         data:{
             count:1,
+            name:'text',
+            sss:'<span style="color:red">红色</span>',
             ong :{
                 nem:111
             }
         }
 
     })
-     app.$data.count
-     app.$data.count =2;
-     app.$data.ong.nem
-     app.$data.ong.nem =2;
+    //  app.count
+    //  app.count =2;
+    //  app.ong.nem
+    //  app.ong.nem =222;
+     setInterval(()=>{
+        app.count++
+     },1000)
 </script>
 </html>
