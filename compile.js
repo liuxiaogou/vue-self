@@ -13,7 +13,6 @@ class Compiler{
     }
     compile(el){
         const childNodes = el.childNodes;
-        console.log(111);
         Array.from(childNodes).forEach((node)=>{
             
             if (this.isElement(node)) {
@@ -34,7 +33,6 @@ class Compiler{
         return node.nodeType ===1
     }
     isText(node){
-        // console.log(node,node.textContent);
         return node.nodeType ===3 && /\{\{(.*)\}\}/.test(node.textContent)
     }
     
@@ -46,7 +44,6 @@ class Compiler{
             const value = attr.value;
             if (this.isFyAttr(name)) {
                 const attr_name = name.substring(3);
-                console.log(attr_name,value);
                 this[attr_name] && this[attr_name](node,value)
             }
         })
@@ -70,7 +67,6 @@ class Compiler{
         fn && fn(node,this.$vm[content])
         //创建watcher实例
         new Watcher(this.$vm,content,function(val){
-            console.log(55);
             fn && fn(node,val)
         });
     }
@@ -78,7 +74,6 @@ class Compiler{
         node.innerHTML = content;
     }
     textUpdata(node,content){
-        console.log(node,content)
         node.textContent = content;
     }
 

@@ -5,7 +5,6 @@ function defineReactive(obj,key,val){
         get(){
             console.log('值为'+val);
             //依赖收集在这里
-            console.log(Dep.target);
             Dep.target&& dep.addDep(Dep.target)
             return val
         },
@@ -13,10 +12,8 @@ function defineReactive(obj,key,val){
             if (newVal!==val) {
                 val = newVal
                 observe(newVal);
-                console.log(dep);
                 dep.notify();
             }
-            // console.log('值为'+newVal)
         }
     })
 
